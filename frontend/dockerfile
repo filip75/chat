@@ -1,0 +1,10 @@
+FROM node:13-slim
+
+WORKDIR /app
+COPY package.json yarn.lock /app/
+RUN yarn
+COPY src /app/src
+COPY public /app/public
+
+ENTRYPOINT ["yarn"]
+CMD ["start"]

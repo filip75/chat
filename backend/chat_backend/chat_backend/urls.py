@@ -19,5 +19,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', lambda request: HttpResponse("ok ndasfakd"))
+    path('', lambda request: HttpResponse("ok"))
 ]
