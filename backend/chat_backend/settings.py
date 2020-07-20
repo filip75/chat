@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -65,7 +67,19 @@ TEMPLATES = [
     },
 ]
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ['GOOGLE_KEY']
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ['GOOGLE_SECRET']
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email', 'profile']
+
+SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
+
 WSGI_APPLICATION = 'chat_backend.wsgi.application'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases

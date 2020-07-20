@@ -10,7 +10,7 @@ wait_for_db() {
 
 setup_db() {
   wait_for_db
-  python /code/chat_backend/manage.py migrate
+  python /code/manage.py migrate
   echo "setup_db done"
   touch $FILE
 }
@@ -19,4 +19,4 @@ if [ ! -f $FILE ]; then
   setup_db
 fi
 
-python /code/chat_backend/manage.py runserver 0.0.0.0:8000
+python /code/manage.py runserver 0.0.0.0:8000
